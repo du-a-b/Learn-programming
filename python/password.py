@@ -21,16 +21,19 @@ def main():
     
     # Start of main code
     clear_screen()
-    print("Welcome to Password Generator")
-    print("For your password do you need")
-    print("1. Lowercase")
-    print("2. Uppercase")
-    print("3. Digits")
-    print("4. Symbols")
-    print("5. Everything")
+    print("\n" + "=" * 40)
+    print("  PASSWORD GENERATOR")
+    print("=" * 40 + "\n")
     
-    user_wants = input("Enter your choice(s): ")  # Don't convert to int yet
-
+    print("Select character types (e.g., '123' for multiple):\n")
+    print("  [1] Lowercase")
+    print("  [2] Uppercase")
+    print("  [3] Digits")
+    print("  [4] Symbols")
+    print("  [5] Everything\n")
+    
+    user_wants = input("Enter your choice(s): ")
+    
     # Check each character in their input
     if '1' in user_wants:
         user_wants_lowercase = True
@@ -56,9 +59,8 @@ def main():
     if user_wants_everything:
         char_pool += everything
     
-    print(f"Character pool: {char_pool}")  # For testing
-    print("Awesome choice")
-    clear_screen()
+    print(f"\nYou selected: {user_wants}")
+    print("Awesome choice!\n")
     
     # Ask user for password length
     length = int(input("How long should the password be? "))
@@ -68,7 +70,9 @@ def main():
     for i in range(length):
         password += random.choice(char_pool)
     
+    print("\n" + "-" * 40)
     print(f"Your password: {password}")
+    print("-" * 40 + "\n")
 
 if __name__ == "__main__":
     main()
